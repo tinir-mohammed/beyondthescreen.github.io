@@ -1,0 +1,46 @@
+.mainMenu a {
+  padding-top: 6px;
+  padding-bottom: 6px;
+    /* padding: 6px 8px 6px 16px; */
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    display: block;
+    width: 100%
+}
+
+.dropdown-btn {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 0px;
+  padding-right: 0px;
+    /* padding: 6px 8px 6px 16px; */
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #818181;
+  display: inline;
+  border: none;
+  background: none;
+  width: 25%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.active {
+background-color: transparent;
+color: white;
+}
+.dropdown-container {
+display: none;
+background-color: transparent;
+/* padding-left: 18px; */
+}
+.inner-dropdown-container {
+display: none;
+background-color: transparent;
+padding-left: 18px;
+}
+.inner-dropdown-container a {
+font-size: 18px;
+}
