@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,9 +15,9 @@
       <!-- left panel -->
       <div class="left">
         <div class="photo">
-          <img src="tinir.JPG" alt="photo">
+          <img src="tinir.jpg" alt="photo">
           <div class="name">
-            <h2>Tinir Mohamed Sadi</h2>
+            <h2 style="color:white">Tinir Mohamed Sadi</h2>
           </div>
         </div>
         <div class="info">
@@ -40,6 +39,7 @@
           <h2>💻 Skills</h2>
             <h4 class="bar" style= "width:75%">C/C++</h4>
             <h4 class="bar" style= "width:60%">Java</h4>
+            <h4 class="bar" style= "width:40%">JavaScript</h4>
             <h4 class="bar" style= "width:40%">R</h4>
             <h4 class="bar" style= "width:80%">HTML</h4>
             <h4 class="bar" style= "width:75%">CSS</h4>
@@ -50,7 +50,10 @@
       <!-- right panel -->
       <div class="right">
         <div class="edu">
-          <h1>‍🎓 Education</h1>
+          <h1>
+            🎓 <a href="" class="typewrite" data-period="2000" data-type='[ "‍Education."]'>
+            </a>
+          </h1>
           <h2>2017 - Present</h2>
           <h4>International Islamic University Malaysia</h4>
           <h4>Major in Computer Science</h4>
@@ -63,7 +66,10 @@
           <h4>International Islamic School Malaysia, Kuala Lumpur</h4>
         </div>
         <div class="work">
-          <h1>💼 Work Experience</h1>
+          <h1>
+            💼 <a href="" class="typewrite" data-period="2000" data-type='[ "Work Experience."]'>
+            </a>
+          </h1>
           <h2>Editor – ‘The Grapevine’ newsletter (2016)</h2>
           <h3>The Grapevine is International Islamic School’s official newsletter
             that covers topics ranging from school events and related particulars to the
@@ -81,14 +87,75 @@
           <h3>-	Managed the packaging of various donation items and transportation to flood affected areas.</h3>
         </div>
         <div class="cocu">
-          <h1>💡 Extra Curricular</h1>
+          <h1>
+            💡 <a href="" class="typewrite" data-period="2000" data-type='[ "Extra Curricular."]'>
+            </a>
+          </h1>
           <h4>🔦 Novice Finalist of Malaysian Women Debate Open 2018 </h4>
           <h4>🔦 Adjudicator of Grand Finals and Novice Finals of Sunway Debate Open 2018</h4>
           <h4>🔦 Basketball Tournament quarter finalist of Inter - Kulliyyah Sports Festival 2018 (KUSEF`18)</h4>
-          <h4>🔦 Death from the persective of other religions <a href="https://ibb.co/hRsc4H4">poster</a></h4>
+          <h4>🔦 Death from the perspective of other religions <a href="https://ibb.co/hRsc4H4">poster</a></h4>
 
         </div>
       </div>
     </div>
+    <script>
+    var TxtType = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+            }
+
+            setTimeout(function() {
+            that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                  new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        };
+    </script>
   </body>
 </html>
