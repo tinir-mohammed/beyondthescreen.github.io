@@ -3,7 +3,9 @@ body{
   font-size: 19px;
   line-height: 1;
   font-family: 'Raleway';
-  background: #dea779;
+  /* background: #dea779; */
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #cca69a, #a385bd);
 }
 .page{
   padding: 0 8px;
@@ -73,7 +75,7 @@ h4,h3{
   line-height: cen;
   padding:16px 16px;
   color:#fff!important;
-  background-color:#ad815c!important;
+  background-color:#bf9ba6!important;
   position: relative;
   position: relative;
   display: block;
@@ -81,4 +83,8 @@ h4,h3{
 }
 h2{
   color: grey;
+}
+h1,a{
+  text-decoration: none;
+  color: black;
 }
